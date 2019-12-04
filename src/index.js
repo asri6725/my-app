@@ -29,7 +29,7 @@ class App extends React.Component {
 
 	}
 	sheetClick = () => {
-		alert('clicked something')
+		
 	}
 	render() {
 	  return (
@@ -53,7 +53,6 @@ class Disp extends React.Component{
 	getData(e){
 		const string = this.state.string;
 		this.setState({string: string+e});
-		alert(string);
 	}
 	
 	render(){
