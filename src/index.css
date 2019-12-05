@@ -64,13 +64,17 @@ html, body{
     margin: 0 auto;
     width: 80%;
     height: auto;
-    max-height: 30%;
+    max-height: 20%;
+    position: sticky;
+    bottom: 0;
+    overflow: scroll;
 }
 .string{
     border-bottom: dashed gray;
     padding-bottom: 5px;
     max-height: 20%;
     height: auto;
+    
 
 }
 .send{
