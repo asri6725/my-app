@@ -64,15 +64,16 @@ html, body{
     margin: 0 auto;
     width: 80%;
     height: auto;
-    max-height: 20%;
+    max-height: 20px;
     position: sticky;
     bottom: 0;
     overflow: scroll;
+    background-color: white;
 }
 .string{
     border-bottom: dashed gray;
     padding-bottom: 5px;
-    max-height: 20%;
+    max-height: 20px;
     height: auto;
     
 
