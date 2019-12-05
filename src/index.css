@@ -1,5 +1,178 @@
-.some{
-    width: 100px;
-    height: 100px;
-    border: solid;
+html, body{
+    background: rgba(255, 255, 255, 1);
+    font: "Century Gothic", Futura, sans-serif;
+    height: 100%;
 }
+
+.menu{
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    min-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+   
+}
+.meat, .cheese, .veg, .leaves, .extra, .drinks, .frozen, .icecream, .sauce{
+    width: 50%;
+    font: sans-serif;
+    padding-bottom: 5px;
+    margin: 0 auto;
+    font: 16px bold;
+}
+.list1, .list2, .list3, .list4, .list5, .list6, .list7, .list8, .list9{
+    padding-top: 15px;
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    min-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: '20px';
+    grid-auto-rows: minmax(100px, auto);
+    padding-bottom: 5px;
+    border-bottom: gray solid;
+    font: 13px lighter;
+}
+
+
+.items{
+    width: auto;
+    min-width: 15px;
+    height: auto;
+    min-height: 5px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.item{
+    width: auto;
+    min-width: 30px;
+    height: auto;
+    min-height: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+.submit{
+    border-bottom: solid black;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    max-height: 30%;
+}
+.string{
+    border-bottom: dashed gray;
+    padding-bottom: 5px;
+    max-height: 20%;
+    height: auto;
+
+}
+.send{
+    float: right;
+    max-width: 25px;
+    max-height: 25px;
+    width: auto;
+    height: auto;
+}
+.wrapper{
+    width: auto;
+    max-width: 90%;
+}
+
+
+@media only screen and (max-width: 900px) {
+    html, body{
+        background: rgba(255, 255, 255, 1);
+        font: "Century Gothic", Futura, sans-serif;
+        height: 100%;
+    }
+    
+    .menu{
+        width: auto;
+        max-width: 80%;
+        height: auto;
+        min-height: 30px;
+        text-align: center;
+        margin: 0 auto;
+       
+    }
+    .meat, .cheese, .veg, .leaves, .extra, .drinks, .frozen, .icecream, .sauce{
+        width: 50%;
+        font: sans-serif;
+        padding-bottom: 5px;
+        margin: 0 auto;
+        font: 16px bold;
+    }
+    .list1, .list2, .list3, .list4, .list5, .list6, .list7, .list8, .list9{
+        padding-top: 15px;
+        width: auto;
+        max-width: 75%;
+        height: auto;
+        min-height: 30px;
+        text-align: center;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: '10px';
+        grid-auto-rows: minmax(100px, auto);
+        padding-bottom: 5px;
+        border-bottom: gray solid;
+        font: 13px lighter;
+    }
+    
+    
+    .items{
+        width: auto;
+        min-width: 15px;
+        height: auto;
+        min-height: 5px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .item{
+        width: auto;
+        min-width: 30px;
+        height: auto;
+        min-height: 10px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .submit{
+        border-bottom: solid black;
+        padding-top: 30px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        padding-right: 30px;
+        margin: 0 auto;
+        width: 80%;
+        height: auto;
+        max-height: 30%;
+    }
+    .string{
+        border-bottom: dashed gray;
+        padding-bottom: 5px;
+        max-height: 20%;
+        height: auto;
+    
+    }
+    .send{
+        float: right;
+        max-width: 25px;
+        max-height: 25px;
+        width: auto;
+        height: auto;
+        padding-left: 15px;
+    }
+    .wrapper{
+        width: auto;
+        max-width: 90%;
+    }
+    
+  }

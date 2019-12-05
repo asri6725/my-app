@@ -93,8 +93,9 @@
      height: 57px;
      line-height: 57px;
      text-align: center;
+     font: Futura, sans-serif;
      font-size: 20px;
-     font-weight: bold;
+     font-weight: lighter;
      color: #ff7878;
      border-radius: 12px;
    }
