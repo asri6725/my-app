@@ -183,7 +183,7 @@ class Disp extends React.Component{
 		super(props);
 		this.state = {
 			menus: [{content: 'some'}, {content: '1'}, {content: '2'}, {content: '3'}, {content: "a lot of"}],
-			string: "sms:&body=Hey dan! \nI want \n",
+			string: "sms:?&body=Hey dan! \nI want \n",
 			display: "Hey dan! \r\nI want\r\n",
 			meat: [
 				"bacon",
