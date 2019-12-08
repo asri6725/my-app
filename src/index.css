@@ -1,6 +1,6 @@
 html, body{
     background: rgba(255, 255, 255, 1);
-    font: "Century Gothic", Futura, sans-serif;
+    font: 16px "Century Gothic", ,Futura, sans-serif;
     height: 100%;
 }
 
@@ -18,7 +18,7 @@ html, body{
     font: sans-serif;
     padding-bottom: 5px;
     margin: 0 auto;
-    font: 16px bold;
+    font: 22px bold;
 }
 .list1, .list2, .list3, .list4, .list5, .list6, .list7, .list8, .list9{
     padding-top: 15px;
@@ -34,7 +34,7 @@ html, body{
     grid-auto-rows: minmax(100px, auto);
     padding-bottom: 5px;
     border-bottom: gray solid;
-    font: 13px lighter;
+    font: 20px lighter;
 }
 
 
@@ -61,7 +61,7 @@ html, body{
     margin: 0 auto;
     width: 80%;
     height: auto;
-    max-height: 20px;
+    max-height: 20%;
     position: -webkit-sticky; 
     position: sticky;
     bottom: 5px;
@@ -153,7 +153,7 @@ html, body{
         margin: 0 auto;
         width: 80%;
         height: auto;
-        max-height: 20px;
+        max-height: 20%;
         position: -webkit-sticky; 
         position: sticky;
         bottom: 5px;
