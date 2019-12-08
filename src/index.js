@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Actionsheet from './sheet';
 import send from './send.png';
-import { thisExpression } from '@babel/types';
 
 class App extends React.Component {
 	constructor(props){
@@ -27,18 +26,21 @@ class App extends React.Component {
 	onRequestClose = () => {
 	  this.onClick()
 	}
-	onCancel = () =>{
-
-	}
-	sheetClick = () => {
-		
-	}
+	
 	render() {
+		const show = this.state.show;
+		  let action;
+		  if (show) {
+			  action = <Actionsheet actionData = {this.appData} show= {this.state.show} menus={this.props.menus} onRequestClose={this.onRequestClose}/>
+		  } else {
+			  action = <a />
+		  }
 	  return (
+		  
 		<div className = "items">
 		  <div className = "item" onClick={this.onClick}>{this.props.tip}</div>
-   		  <Actionsheet actionData = {this.appData} show= {this.state.show} menus={this.props.menus} onRequestClose={this.onRequestClose} onClick={this.sheetClick} onCancel={this.onCancel}/>
-		</div>
+		  	{action}
+			</div>
 	  )
 	}
   }

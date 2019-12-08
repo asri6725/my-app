@@ -57,26 +57,22 @@ html, body{
 }
 .submit{
     border-bottom: solid black;
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    padding-right: 30px;
+    padding: 10px;
     margin: 0 auto;
     width: 80%;
     height: auto;
     max-height: 20px;
+    position: -webkit-sticky; 
     position: sticky;
-    bottom: 0;
+    bottom: 5px;
     overflow: scroll;
     background-color: white;
+   
 }
 .string{
-    border-bottom: dashed gray;
     padding-bottom: 5px;
     max-height: 20px;
     height: auto;
-    
-
 }
 .send{
     float: right;
@@ -92,6 +88,8 @@ html, body{
 
 
 @media only screen and (max-width: 900px) {
+    
+    
     html, body{
         background: rgba(255, 255, 255, 1);
         font: "Century Gothic", Futura, sans-serif;
@@ -100,7 +98,7 @@ html, body{
     
     .menu{
         width: auto;
-        max-width: 80%;
+        max-width: 90%;
         height: auto;
         min-height: 30px;
         text-align: center;
@@ -117,14 +115,14 @@ html, body{
     .list1, .list2, .list3, .list4, .list5, .list6, .list7, .list8, .list9{
         padding-top: 15px;
         width: auto;
-        max-width: 75%;
+        max-width: 90%;
         height: auto;
         min-height: 30px;
         text-align: center;
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: '10px';
+        grid-gap: '20px';
         grid-auto-rows: minmax(100px, auto);
         padding-bottom: 5px;
         border-bottom: gray solid;
@@ -151,24 +149,25 @@ html, body{
     }
     .submit{
         border-bottom: solid black;
-        padding-top: 30px;
-        padding-left: 20px;
-        padding-bottom: 20px;
-        padding-right: 30px;
+        padding: 10px;
         margin: 0 auto;
         width: 80%;
         height: auto;
         max-height: 20px;
+        position: -webkit-sticky; 
         position: sticky;
-        bottom: 0;
+        bottom: 5px;
         overflow: scroll;
         background-color: white;
+       
     }
     .string{
         border-bottom: dashed gray;
         padding-bottom: 5px;
         max-height: 20px;
-        height: auto;    
+        height: auto;
+        
+    
     }
     .send{
         float: right;
@@ -176,7 +175,6 @@ html, body{
         max-height: 25px;
         width: auto;
         height: auto;
-        padding-left: 15px;
     }
     .wrapper{
         width: auto;
