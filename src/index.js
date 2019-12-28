@@ -75,15 +75,10 @@ class Disp extends React.Component{
 					options.push(<div className="heading" key={i+j}><h3>{this.state.transposed[i][j]}</h3></div>)
 				}
 				else if(this.state.transposed[i][j]!="null"){
-					if(j==this.state.transposed[0].length-1){
-						options.push(<div className="lastValue"><App tip = {this.state.transposed[i][j]} menus = {this.state.menus} sendData = {this.getData} /></div>)
-					
-					}
-					else{
 					options.push(<div className="value"><App tip = {this.state.transposed[i][j]} menus = {this.state.menus} sendData = {this.getData} /></div>)
-					}
 				}
 			}
+			options.push(<div className="break">  </div>)
 		}
 		return(
 			<div className = "Wrapper">

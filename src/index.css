@@ -34,17 +34,10 @@ html, body{
     padding-bottom: 5px;
     font: 20px lighter;
 }
-.lastValue{
-    padding-top: 15px;
-    width: auto;
-    max-width: 90%;
-    height: auto;
-    min-height: 30px;
-    text-align: center;
-    margin: 0 auto;
-    padding-bottom: 5px;
-    border-bottom: gray solid;
-    font: 20px lighter;
+.break{
+    
+    border-top: gray solid;
+    
 }
 
 
