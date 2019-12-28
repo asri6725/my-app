@@ -1,49 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Actionsheet from './sheet';
 import send from './send.png';
+import App from './menuItem'
+import config from './config'
 
-class App extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			show: false
-		}
-		this.appData = this.appData.bind(this);
-	}
-
-	appData(data){
-
-		this.props.sendData(data+ " "+ this.props.tip+", "+"\n")
-	}
-
-	onClick = () => {
-		const { show } = this.state
-		this.setState({show: !show})
-	}
-   
-	onRequestClose = () => {
-	  this.onClick()
-	}
-	
-	render() {
-		const show = this.state.show;
-		  let action;
-		  if (show) {
-			  action = <Actionsheet actionData = {this.appData} show= {this.state.show} menus={this.props.menus} onRequestClose={this.onRequestClose}/>
-		  } else {
-			  action = <a />
-		  }
-	  return (
-		  
-		<div className = "items">
-		  <div className = "item" onClick={this.onClick}>{this.props.tip}</div>
-		  	{action}
-			</div>
-	  )
-	}
-  }
 class Disp extends React.Component{
 	
 	getData(e){
@@ -52,9 +13,46 @@ class Disp extends React.Component{
 		const string = this.state.string;
 		this.setState({string: string+e});
 	}
+	componentDidMount() {
+        // 1. Load the JavaScript client library.
+        window.gapi.load("client", this.initClient);
+    }
+
+    initClient = () => {
+        // 2. Initialize the JavaScript client library.
+        window.gapi.client
+          .init({
+            apiKey: config.apiKey,
+            // Your API key will be automatically added to the Discovery Document URLs.
+            discoveryDocs: config.discoveryDocs
+          })
+          .then(() => {
+          // 3. Initialize and make the API request.
+          this.load();
+        });
+      };
+
+    load() {
+        window.gapi.client.load("sheets", "v4", () => {
+          window.gapi.client.sheets.spreadsheets.values
+            .get({
+              spreadsheetId: config.spreadsheetId,
+              range: "Sheet1"
+            })
+            .then(
+              response => {
+                this.setState({array: response.result.values, result:true})
+              },
+              response => {
+                this.setState({ result:false, error: response.result.error});
+              }
+            );
+        });
+      }
 
 	
 	render(){
+		console.log(this.state)
 		return(
 			<div className = "Wrapper">
 				<div className="menu">
@@ -183,7 +181,7 @@ class Disp extends React.Component{
 		super(props);
 		this.state = {
 			menus: [{content: 'some'}, {content: '1'}, {content: '2'}, {content: '3'}, {content: "a lot of"}],
-			string: "sms:?&body=Hey dan! \nI want \n",
+			string: "sms:?&body=Hey dan! </br>I want \n",
 			display: "Hey dan! \r\nI want\r\n",
 			meat: [
 				"bacon",
@@ -334,7 +332,10 @@ class Disp extends React.Component{
 				"choc 130",
 				"lamington 130",
 				"pavlova 130",
-			],	
+			],
+			array: [],	
+            result: false,
+            error: null
 		}
 		this.getData = this.getData.bind(this);
 	}
