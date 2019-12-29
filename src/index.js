@@ -69,35 +69,34 @@ class Disp extends React.Component{
 	render(){
 		if(this.state.result == true){
 			const options = [];
-		for(var i=0; i<this.state.transposed.length; i++){
-			for(var j=0; j< this.state.transposed[0].length; j++){
-				if(j==0){
-					options.push(<div className="heading" key={i+j}><h3>{this.state.transposed[i][j]}</h3></div>)
+			for(var i=0; i<this.state.transposed.length; i++){
+				options.push(<div className="heading" key={i+0}><h3>{this.state.transposed[i][0]}</h3></div>)
+
+				for(var j=1; j< this.state.transposed[0].length; j++){
+					if(this.state.transposed[i][j]!=="null"){
+						options.push(<div className="value"><App tip = {this.state.transposed[i][j]} menus = {this.state.menus} sendData = {this.getData} /></div>)
+					}
 				}
-				else if(this.state.transposed[i][j]!="null"){
-					options.push(<div className="value"><App tip = {this.state.transposed[i][j]} menus = {this.state.menus} sendData = {this.getData} /></div>)
-				}
+				options.push(<div className="break">  </div>)
 			}
-			options.push(<div className="break">  </div>)
-		}
-		return(
-			<div className = "Wrapper">
-				<div className="menu">
-					{options}
-					
-				</div>
-				 <div className="submit">
-					<div className = "send">
-						<a href={this.state.string}>
-							<img className = "send" src = {send} />
-						</a>
+			return(
+				<div className = "Wrapper">
+					<div className="menu">
+						{options}
+						
 					</div>
-					<div className="String">
-						<a> {this.state.display} </a>
-					</div>
-				</div> 
-		</div>
-		 )
+					<div className="submit">
+						<div className = "send">
+							<a href={this.state.string}>
+								<img className = "send" src = {send} />
+							</a>
+						</div>
+						<div className="String">
+							<a> {this.state.display} </a>
+						</div>
+					</div> 
+			</div>
+			)
 		}
 		return(
 			<div> Recieving sheet Data :) </div>
@@ -109,7 +108,7 @@ class Disp extends React.Component{
 		super(props);
 		this.state = {
 			menus: [{content: 'some'}, {content: '1'}, {content: '2'}, {content: '3'}, {content: "a lot of"}],
-			string: "sms:?&body=Hey dan! </br>I want \n",
+			string: "sms:?&body=Hey dan! I want \r\n",
 			display: "Hey dan! \r\nI want\r\n",
 			array: [],	
             result: false,
