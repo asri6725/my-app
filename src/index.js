@@ -95,6 +95,11 @@ class Disp extends React.Component{
 							<a> {this.state.display} </a>
 						</div>
 					</div> 
+					<div className = "Additionals">
+						<h4>Trivial info </h4>
+						<a href = "https://docs.google.com/spreadsheets/d/1EWPjrXH7BGoqE_sKH2Jn-Av5Kgf4nB5JRtZEgj4e8f4/edit#gid=0"> Click here to go to the sheet from which this data is generated </a>
+						{<br />}This page works best with iPhones :) The send button is supposed to convert the display text to sms text.
+					</div>
 			</div>
 			)
 		}

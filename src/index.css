@@ -73,6 +73,9 @@ html, body{
     max-width: 90%;
 }
 
+.Additionals{
+    float: right;
+}
 @media only screen and (max-width: 900px) {
 
     html, body{
@@ -124,7 +127,7 @@ html, body{
         margin: 0 auto;
         width: 80%;
         height: auto;
-        max-height: 20%;
+        max-height: 300px;
         position: -webkit-sticky; 
         position: sticky;
         bottom: 5px;
