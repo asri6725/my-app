@@ -71,10 +71,13 @@ class Disp extends React.Component{
 			const options = [];
 			for(var i=0; i<this.state.transposed.length; i++){
 				options.push(<div className="heading" key={i+0}><h3>{this.state.transposed[i][0]}</h3></div>)
-
 				for(var j=1; j< this.state.transposed[0].length; j++){
-					if(this.state.transposed[i][j]!=="null"){
-						options.push(<div className="value"><App tip = {this.state.transposed[i][j]} menus = {this.state.menus} sendData = {this.getData} /></div>)
+					if(this.state.transposed[i][j]!=="" ){
+						if(this.state.transposed[i][j]!=="empty" ){
+							if(this.state.transposed[i][j]!==undefined ){
+								options.push(<div className="value"><App tip = {this.state.transposed[i][j]} menus = {this.state.menus} sendData = {this.getData} /></div>)
+							}		
+						}
 					}
 				}
 				options.push(<div className="break">  </div>)
@@ -98,7 +101,7 @@ class Disp extends React.Component{
 					<div className = "Additionals">
 						<h4>Trivial info </h4>
 						<a href = "https://docs.google.com/spreadsheets/d/1EWPjrXH7BGoqE_sKH2Jn-Av5Kgf4nB5JRtZEgj4e8f4/edit#gid=0"> Click here to go to the sheet from which this data is generated </a>
-						{<br />}This page works best with iPhones :) The send button is supposed to convert the display text to sms text.
+						(first row is the heading!){<br />}This page works best with iPhones :) The send button is supposed to convert the display text to sms text.
 					</div>
 			</div>
 			)
