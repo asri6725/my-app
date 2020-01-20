@@ -15,7 +15,7 @@ html, body{
     grid-template-columns: repeat(3, 1fr);
     grid-gap: '20px';
     grid-auto-rows: minmax(100px, auto);
-   
+    white-space: pre-line;
 }
 .heading{ 
     width: 100%;

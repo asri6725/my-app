@@ -11,7 +11,7 @@ class Disp extends React.Component{
 		const display = this.state.display;
 		this.setState({display: display+e});
 		const string = this.state.string;
-		this.setState({string: string+e});
+		this.setState({string: string+e+"                                                       "});
 	}
 	componentWillMount() {
         // 1. Load the JavaScript client library.
@@ -108,8 +108,8 @@ class Disp extends React.Component{
 		super(props);
 		this.state = {
 			menus: [{content: 'some'}, {content: '1'}, {content: '2'}, {content: '3'}, {content: "a lot of"}],
-			string: "sms:?&body=Hey dan! I want \r\n",
-			display: "Hey dan! \r\nI want\r\n",
+			string: "sms:&body=Hey dan! I want \n",
+			display: "Hey dan!\nI want\n",
 			array: [],	
             result: false,
 			error: null,
