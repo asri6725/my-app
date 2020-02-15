@@ -24,21 +24,12 @@ function add(key, value, array){
 
 
 class Disp extends React.Component{
-	stringUpdate(){
-		const array = this.state.mapped;
-		var string = this.state.smsStart + "";
-		
-		for(var i=0; i< array.length; i++){
-			string = string + array[i][1] + " "+ array[i][0] + ",                                                            ";
-		}
-		this.setState({string: string})
-	}
 	
 	getData(value, key){
 		const array = this.state.mapped;
 		this.setState({mapped: add(key, value, array)})
 		var display = "";
-		var string = this.state.smsStart + "";
+		var string =  "";
 		
 		for(var i=0; i< array.length; i++){
 			display = display + array[i][1] + " "+ array[i][0] +", ";
@@ -101,20 +92,16 @@ class Disp extends React.Component{
 	  this.setState({transposed: newArray})
 	  }
 	whatsappClick(){
-		this.setState({smsStart:"https://wa.me/?text="})
-		this.stringUpdate()	
+		this.setState({smsStart:"https://wa.me/?text="})	
 	}
 	androidClick(){
-		this.setState({smsStart:"sms:?body="})
-		this.stringUpdate()	
+		this.setState({smsStart:"sms:?body="})	
 	}
 	iphoneClick(){
-		this.setState({smsStart: "sms:&body="})
-		this.stringUpdate()	
+		this.setState({smsStart: "sms:&body="})		
 	}
 	mailClick(){
-		this.setState({smsStart: "mailto:?Subject="})
-		this.stringUpdate()	
+		this.setState({smsStart: "mailto:?Subject="})	
 	}
 	render(){
 		//console.log(this.state.smsStart, this.state.string)
@@ -151,7 +138,7 @@ class Disp extends React.Component{
 					</div>
 					<div className="submit">
 						<div className = "send">
-							<a href={this.state.string}>
+							<a href={this.state.smsStart+this.state.string}>
 								<img className = "send" src = {send} />
 							</a>
 						</div>
@@ -193,7 +180,6 @@ class Disp extends React.Component{
 		this.androidClick = this.androidClick.bind(this);
 		this.iphoneClick = this.iphoneClick.bind(this);
 		this.mailClick = this.mailClick.bind(this);
-		this.stringUpdate = this.stringUpdate.bind(this);
 	}
   }
 
