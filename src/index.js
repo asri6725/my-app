@@ -24,6 +24,15 @@ function add(key, value, array){
 
 
 class Disp extends React.Component{
+	stringUpdate(){
+		const array = this.state.mapped;
+		var string = this.state.smsStart + "";
+		
+		for(var i=0; i< array.length; i++){
+			string = string + array[i][1] + " "+ array[i][0] + ",                                                            ";
+		}
+		this.setState({string: string})
+	}
 	
 	getData(value, key){
 		const array = this.state.mapped;
@@ -92,18 +101,23 @@ class Disp extends React.Component{
 	  this.setState({transposed: newArray})
 	  }
 	whatsappClick(){
-		this.setState({smsStart:"https://wa.me/?text="})	
+		this.setState({smsStart:"https://wa.me/?text="})
+		this.stringUpdate()	
 	}
 	androidClick(){
 		this.setState({smsStart:"sms:?body="})
+		this.stringUpdate()	
 	}
 	iphoneClick(){
 		this.setState({smsStart: "sms:&body="})
+		this.stringUpdate()	
 	}
 	mailClick(){
 		this.setState({smsStart: "mailto:?Subject="})
+		this.stringUpdate()	
 	}
 	render(){
+		//console.log(this.state.smsStart, this.state.string)
 		if(this.state.result == true){
 			const options = [];
 			for(var i=0; i<this.state.transposed.length; i++){
@@ -179,6 +193,7 @@ class Disp extends React.Component{
 		this.androidClick = this.androidClick.bind(this);
 		this.iphoneClick = this.iphoneClick.bind(this);
 		this.mailClick = this.mailClick.bind(this);
+		this.stringUpdate = this.stringUpdate.bind(this);
 	}
   }
 
