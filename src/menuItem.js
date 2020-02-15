@@ -11,7 +11,7 @@ class App extends React.Component {
 
 	appData(data){
 
-		this.props.sendData(data+ " "+ this.props.tip+", "+"\n")
+		this.props.sendData(data, this.props.tip)
 	}
 
 	onClick = () => {

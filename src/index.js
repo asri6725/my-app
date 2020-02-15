@@ -2,21 +2,47 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import send from './send.png';
-import App from './menuItem'
-import config from './config'
+import App from './menuItem';
+import config from './config';
+
+
+
+function add(key, value, array){
+	var check = false;
+	for(var i=0; i<array.length; i++){
+		if(array[i][0] == key){
+			array[i][1] = value;
+			check = true;
+		}
+	}
+	if(check == false){
+			array.push([key, value]);
+	}
+
+	return array
+}
+
 
 class Disp extends React.Component{
 	
-	getData(e){
-		const display = this.state.display;
-		this.setState({display: display+e});
-		const string = this.state.string;
-		this.setState({string: string+e+"                                                       "});
+	getData(value, key){
+		const array = this.state.mapped;
+		this.setState({mapped: add(key, value, array)})
+		var display = "";
+		var string = "sms:&body= " + "";
+		
+		for(var i=0; i< array.length; i++){
+			display = display + array[i][1] + " "+ array[i][0] +", ";
+			string = string + array[i][1] + " "+ array[i][0] + ",                                                            ";
+		}
+		this.setState({display: display, string: string})
 	}
+
 	componentWillMount() {
         // 1. Load the JavaScript client library.
         window.gapi.load("client", this.initClient);
     }
+	
 
     initClient = () => {
         // 2. Initialize the JavaScript client library.
@@ -115,15 +141,16 @@ class Disp extends React.Component{
 	  constructor(props){
 		super(props);
 		this.state = {
-			menus: [{content: 'some'}, {content: '1'}, {content: '2'}, {content: '3'}, {content: "a lot of"}],
-			string: "sms:&body=Hey dan! I want \n",
-			display: "Hey dan!\nI want\n",
+			menus: [{content: 'some'}, {content: '1'}, {content: '2'}, {content: '3'}, {content: "a lot of"}, {content: "remove"}],
+			string: "",
+			display: "",
 			array: [],	
             result: false,
 			error: null,
 			length: 0,
 			width: 0,
-			transposed: []
+			transposed: [],
+			mapped:[]
 		}
 		this.getData = this.getData.bind(this);
 	}
