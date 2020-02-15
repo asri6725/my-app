@@ -29,7 +29,7 @@ class Disp extends React.Component{
 		const array = this.state.mapped;
 		this.setState({mapped: add(key, value, array)})
 		var display = "";
-		var string = "sms:&body= " + "";
+		var string = this.state.smsStart + "";
 		
 		for(var i=0; i< array.length; i++){
 			display = display + array[i][1] + " "+ array[i][0] +", ";
@@ -91,7 +91,18 @@ class Disp extends React.Component{
 
 	  this.setState({transposed: newArray})
 	  }
-	
+	whatsappClick(){
+		this.setState({smsStart:"https://wa.me/?text="})	
+	}
+	androidClick(){
+		this.setState({smsStart:"sms:?body="})
+	}
+	iphoneClick(){
+		this.setState({smsStart: "sms:&body="})
+	}
+	mailClick(){
+		this.setState({smsStart: "mailto:?Subject="})
+	}
 	render(){
 		if(this.state.result == true){
 			const options = [];
@@ -108,8 +119,18 @@ class Disp extends React.Component{
 				}
 				options.push(<div className="break">  </div>)
 			}
+
+			
 			return(
+				
 				<div className = "Wrapper">
+					<div className = "LinkChange">
+					<button onClick={this.whatsappClick}> WhatsApp </button>
+					<button onClick={this.androidClick}> Andriod </button>
+					<button onClick={this.iphoneClick}> iPhone </button>
+					<button onClick={this.mailClick}> Email </button>
+					</div>
+
 					<div className="menu">
 						{options}
 						
@@ -150,9 +171,14 @@ class Disp extends React.Component{
 			length: 0,
 			width: 0,
 			transposed: [],
-			mapped:[]
+			mapped:[],
+			smsStart: "sms:&body="  //https://wa.me/?text=
 		}
 		this.getData = this.getData.bind(this);
+		this.whatsappClick = this.whatsappClick.bind(this);
+		this.androidClick = this.androidClick.bind(this);
+		this.iphoneClick = this.iphoneClick.bind(this);
+		this.mailClick = this.mailClick.bind(this);
 	}
   }
 
