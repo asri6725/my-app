@@ -6,16 +6,30 @@ import App from './menuItem';
 import config from './config';
 
 
+function sliceIndex(index, array){
+	var ret = [];
+	for(var i=0; i<array.length; i++){
+		if(i!=index){
+			ret.push(array[i])
+		}
+	}
+	return ret;
+}
 
 function add(key, value, array){
 	var check = false;
 	for(var i=0; i<array.length; i++){
 		if(array[i][0] == key){
+			if(value=='remove'){
+				return sliceIndex(i, array);
+			}
 			array[i][1] = value;
 			check = true;
 		}
+		
 	}
 	if(check == false){
+		if(value!= 'remove')
 			array.push([key, value]);
 	}
 
@@ -25,9 +39,25 @@ function add(key, value, array){
 
 class Disp extends React.Component{
 	
+	displayString(){
+		const array = this.state.mapped;
+		var display = "";
+		var string =  "";
+		
+		for(var i=0; i< array.length; i++){
+			display = display + array[i][1] + " "+ array[i][0] +", ";
+			string = string + array[i][1] + " "+ array[i][0] + ",                                                            ";
+		}
+		this.setState({display: display, string: string})
+	}
+
+
 	getData(value, key){
 		const array = this.state.mapped;
-		this.setState({mapped: add(key, value, array)})
+		this.setState({mapped: add(key, value, array)}, function stateUpdateComplete() {
+			//once the state is updated
+			this.displayString()
+		}.bind(this));
 		var display = "";
 		var string =  "";
 		
@@ -180,6 +210,7 @@ class Disp extends React.Component{
 		this.androidClick = this.androidClick.bind(this);
 		this.iphoneClick = this.iphoneClick.bind(this);
 		this.mailClick = this.mailClick.bind(this);
+		this.displayString = this.displayString.bind(this);
 	}
   }
 
