@@ -131,7 +131,7 @@ class Disp extends React.Component{
 		this.setState({smsStart: "sms:&body="})		
 	}
 	mailClick(){
-		this.setState({smsStart: "mailto:?Subject="})	
+		this.setState({smsStart: "mailto:?Subject=&body="})	
 	}
 	render(){
 		//console.log(this.state.smsStart, this.state.string)
