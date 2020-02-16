@@ -46,7 +46,7 @@ class Disp extends React.Component{
 		
 		for(var i=0; i< array.length; i++){
 			display = display + array[i][1] + " "+ array[i][0] +", ";
-			string = string + array[i][1] + " "+ array[i][0] + ",                                                            ";
+			string = string + array[i][1] + " "+ array[i][0] + ",                                                                                                            ";
 		}
 		this.setState({display: display, string: string})
 	}
