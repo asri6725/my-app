@@ -4,9 +4,12 @@
   "private": true,
   "homepage": "https://asri6725.github.io/my-app",
   "dependencies": {
+    "axios": "^0.20.0",
+    "firebase": "^7.16.0",
     "gh-pages": "^2.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router": "^5.2.0",
     "start": "^5.1.0"
   },
   "scripts": {
