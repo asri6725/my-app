@@ -4,6 +4,7 @@ import './index.css';
 import axios from 'axios';
 import firebase from "firebase"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import Application from './Application'
 
 class Disp extends React.Component{
 
@@ -47,8 +48,11 @@ componentDidMount() {
 	componentDidMount = () => {
 	  firebase.auth().onAuthStateChanged(user => {
 		this.setState({ isSignedIn: !!user })
-		if(this.state.isSignedIn == true){
+		if(this.state.isSignedIn === true){
 			this.setState({email: firebase.auth().currentUser.email})
+		}
+		if(this.state.isSignedIn === false){
+			this.setState({email: "00000"})
 		}
 		console.log("user", user, "Email", firebase.auth().currentUser.email)
 	  })
@@ -58,15 +62,14 @@ componentDidMount() {
 	  return (
 		<div className="App">
 		  {this.state.isSignedIn ? (
+			<div>
 			<span>
 			  <div>Signed In!</div>
 			  <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-			  <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-			  <img
-				alt="profile picture"
-				src={firebase.auth().currentUser.photoURL}
-			  />
+			  <h1>Welcome {firebase.auth().currentUser.displayName}. Why don't you play a classic?</h1>
 			</span>
+			<Application />
+			</div>
 		  ) : (
 			<StyledFirebaseAuth
 			  uiConfig={this.uiConfig}
