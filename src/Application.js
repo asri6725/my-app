@@ -153,7 +153,7 @@ class Application extends Component {
       score : this.state.snakeDots.length,
     };
 
-    axios.post(`http://localhost:8080/update-score`,null, {
+    axios.post(`http://18.222.1.20:8080/update-score`,null, {
       params: user
     })
       .then(res => {
