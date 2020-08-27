@@ -1,30 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import axios from 'axios';
-import firebase from "firebase"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-import Application from './Application'
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import Application from './Application';
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import Allscores from './Allscores';
 
-class Disp extends React.Component{
-
-componentDidMount() {
-	axios.get('http://localhost:8080/')
-	.then(response => {
-	  console.log(response.data);
-	})
-	.catch(error => {
-	  console.log(error);
-	});
-  }
-	render(){
-		return(
-			<p> Hello </p>
-		);
-	}
-  }
-
-  
   firebase.initializeApp({
 	apiKey: "AIzaSyAeHl1Oi2IjVRVOq66fmNRKOGiq46yg66s",
 	authDomain: "sheetmanipulation.firebaseapp.com"
@@ -64,11 +46,22 @@ componentDidMount() {
 		  {this.state.isSignedIn ? (
 			<div>
 			<span>
-			  <div>Signed In!</div>
-			  <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-			  <h1>Welcome {firebase.auth().currentUser.displayName}. Why don't you play a classic?</h1>
+				<div>
+					<Link to="/scores">Scores</Link> <Link to="/">Home</Link>
+			  		<button onClick={() => firebase.auth().signOut()}>Sign out</button>
+			  	</div>
+				
+				<p>Welcome {firebase.auth().currentUser.displayName}! Why don't you play a classic?</p>
+			  
+			  	<Switch>
+        			<Route component={Allscores} path="/scores" exact/>
+					<Route  path = "/" render={(props) => <Application name = {firebase.auth().currentUser.displayName} mail = {firebase.auth().currentUser.email} />}/> 
+					{//component = {Application}
+	}
+      			</Switch>
+			
 			</span>
-			<Application />
+			
 			</div>
 		  ) : (
 			<StyledFirebaseAuth
@@ -84,7 +77,8 @@ componentDidMount() {
 // ========================================
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
-
+    <BrowserRouter><App /></BrowserRouter>,
+    document.getElementById('root')
+  );
+  
+  

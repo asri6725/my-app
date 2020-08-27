@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Snake from './Snake';
 import Food from './Food';
+import axios from 'axios';
 
 const getRandomCoordinates = () => {
   let min = 1;
@@ -22,8 +23,12 @@ const initialState = {
 }
 
 class Application extends Component {
-
-  state = initialState;
+  
+  constructor(props){
+		super(props);
+		this.state = initialState;
+	}
+  
 
   componentDidMount() {
     setInterval(this.moveSnake, this.state.speed);
@@ -142,7 +147,19 @@ class Application extends Component {
       direction: 'STOP',
       gameover: true,
       });
-    //this.setState({direction: 'STOP'});
+    const user = {
+      mail: String(this.props.mail),
+      name: String(this.props.name),
+      score : this.state.snakeDots.length,
+    };
+
+    axios.post(`http://localhost:8080/update-score`,null, {
+      params: user
+    })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
     
   }
 
