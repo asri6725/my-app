@@ -9,7 +9,7 @@ class Allscores extends React.Component{
     }
 	}
     componentDidMount() {
-        axios.get('http://localhost:8080/all-scores/')
+        axios.get('http://18.222.1.20:8080/all-scores/')
         .then(response => {
           console.log(response.data);
           const res = response.data;
