@@ -1,10 +1,4 @@
-# Rocketboy App #  
-
-The link [Link](https://docs.google.com/spreadsheets/d/1EWPjrXH7BGoqE_sKH2Jn-Av5Kgf4nB5JRtZEgj4e8f4/edit#gid=0) to sheets that control the application content. 
-
-This is a prep order tool that converts all the items selected to messages using hrefs. It is important to note that you need to select the message service on the top, there's a choice between iOS sms/Android sms/Whatapp/ Mail.
-
-Headon over to the [app](https://asri6725.github.io/my-app)!
+* The sheets that the app reads from can be found here https://docs.google.com/spreadsheets/d/1EWPjrXH7BGoqE_sKH2Jn-Av5Kgf4nB5JRtZEgj4e8f4/edit#gid=0.*
 
 
 ---
